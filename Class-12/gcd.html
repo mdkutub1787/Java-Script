@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gcd Logiq</title>
+</head>
+
+<body>
+
+    <script>
+
+        const number1 = prompt('Enter a first positive integer: ');
+        const number2 = prompt('Enter a second positive integer: ');
+
+
+        for (let i = 1; i <= number1 && i <= number2; i++) {
+
+            if (number1 % i == 0 && number2 % i == 0) {
+                gcd = i;
+            }
+        }
+
+        document.write(" gcd of " + number1 + " and " + number2 + " is " + gcd);
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let userInput = parseInt(prompt("Enter the number of items:"));
+        let myArray = [];
+        let sum = 0;
+
+        for (let item = 0; item < userInput; item++) {
+            let input = prompt("Enter the " + (item + 1) + " item:");
+            let number = parseFloat(input);
+            while (isNaN(number)) {
+                input = prompt("Enter  the " + (item + 1) + " item:");
+                number = parseFloat(input);
+            }
+            myArray.push(number);
+        }
+
+        for (let i = 0; i < myArray.length; i++) {
+            sum += parseInt(myArray[i])
+        }
+
+        let average = sum / myArray.length;
+
+        document.write("Sum: " + sum + "<br>");
+        document.write("Average: " + average);
+    </script>
+</body>
+</html>

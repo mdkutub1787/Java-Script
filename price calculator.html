@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Calculator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 5px solid #086726;
+            border-radius: 10px;
+            background-color: rgb(213, 24, 93);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input[type="number"]{
+            width: 100%;
+            height: 40%;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 5px solid rgb(174, 230, 95);
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Price and Discount Calculator</h2>
+
+        <div>
+            <label for="">Unit Price</label>
+            <input type="number" class="form-control" id="unitPrice" oninput="gettotalPrice()">
+        </div>
+        <div>
+            <label for="">Quantity</label> <br>
+            <input type="number" class="form-control" id="quantity" oninput="gettotalPrice()">
+        </div>
+
+        <div>
+            <label for="">Discount (%)</label> <br>
+            <input type="number" class="form-control" id="discount" oninput="getactualPrice()">
+        </div>
+
+        <div>
+            <label for="">Total Price</label> <br>
+            <input type="number" class="form-control" id="totalPrice" disabled>
+        </div>
+
+        <div>
+            <label for="">Discount Amount</label> <br>
+            <input type="number" class="form-control" id="discountAmount" disabled>
+        </div>
+        <div>
+            <label for="">Actual Price</label> <br>
+            <input type="number" class="form-control" id="actualPrice" disabled>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function gettotalPrice() {
+            let unitPrice = document.getElementById('unitPrice').value;
+            let quantity = document.getElementById('quantity').value;
+            let totalPrice = document.getElementById('totalPrice').value;
+
+            totalPrice = quantity * unitPrice;
+            totalPrice = document.getElementById('totalPrice').value = totalPrice;
+
+        }
+
+        function getactualPrice() {
+            let discount = document.getElementById('discount').value;
+            let actualPrice = document.getElementById('actualPrice').value;
+            let totalPrice = document.getElementById('totalPrice').value;
+            let discountAmount = document.getElementById('discountAmount').value;
+
+            actualPrice = totalPrice - (totalPrice * discount) / 100;
+            actualPrice = document.getElementById('actualPrice').value = actualPrice;
+
+            discountAmount = (totalPrice * discount) / 100;
+            discountAmount = document.getElementById('discountAmount').value = discountAmount;
+
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
